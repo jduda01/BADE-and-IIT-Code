@@ -57,10 +57,10 @@ eta_squared(me_main1, partial = TRUE, generalized = FALSE,
 
 ###############Factor Analysis Mixed-Effects Models################
 p_flex_fa_long = dplyr::select(p, subj, fact1_ctr, fact2_ctr, fact3_ctr, fact4_ctr,
-                               pos_update_ave,	neg_update_ave_JD, nib_ctr, pib_ctr) %>%
+                               pos_update_ave,	neg_update_ave, nib_ctr, pib_ctr) %>%
   gather("flex_type", "flexibility", contains("ave"))
 
-p_flex_fa_long$valence = -0.5*(p_flex_fa_long$flex_type == "neg_update_ave_JD") + 0.5*(p_flex_fa_long$flex_type == "pos_update_ave")
+p_flex_fa_long$valence = -0.5*(p_flex_fa_long$flex_type == "neg_update_ave") + 0.5*(p_flex_fa_long$flex_type == "pos_update_ave")
 
 #Factor 1
 me_fact1 = lmer(flexibility ~ fact1_ctr*valence + nib_ctr + pib_ctr + (1|subj), data = p_flex_fa_long)
