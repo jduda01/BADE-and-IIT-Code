@@ -108,16 +108,16 @@ cohens_d(best_b ~ gender_ch, data = p)
 cohens_d(BDISumWAve ~ gender, data = p)
     
 #Mean center
-bdiMean = mean(p$BDISumWAve, na.rm=TRUE) #checked code
+bdiMean = mean(p$BDISumWAve, na.rm=TRUE)
 p$bdi_ctr <- p$BDISumWAve - bdiMean
 
-best_a_mean = mean(p$best_a, na.rm=TRUE)#checked code
+best_a_mean = mean(p$best_a, na.rm=TRUE)
 p$best_a_ctr = p$best_a - best_a_mean
 
-best_b_mean = mean(p$best_b, na.rm=TRUE)#checked code
+best_b_mean = mean(p$best_b, na.rm=TRUE)
 p$best_b_ctr = p$best_b - best_b_mean
 
-p$nib_ctr = p$NIB - mean(p$NIB, na.rm = TRUE)#checked code
+p$nib_ctr = p$NIB - mean(p$NIB, na.rm = TRUE)
 p$pib_ctr = p$PIB - mean(p$PIB, na.rm = TRUE)
 
 #Convert to long form
